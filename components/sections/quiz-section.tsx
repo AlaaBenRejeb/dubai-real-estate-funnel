@@ -6,6 +6,7 @@ import {
   calculateResult,
   RESULT_COLORS,
   RESULT_CTA,
+  buildWhatsAppUrl,
   type ResultKey,
 } from "@/lib/translations";
 import { useLang } from "@/lib/lang-context";
@@ -17,6 +18,7 @@ export default function QuizSection() {
   const [phase, setPhase] = useState<Phase>("intro");
   const [currentQ, setCurrentQ] = useState(0);
   const [scores, setScores] = useState<number[]>([]);
+  const [answers, setAnswers] = useState<string[]>([]);
   const [selected, setSelected] = useState<number | null>(null);
   const [phone, setPhone] = useState("");
   const [result, setResult] = useState<ResultKey | null>(null);
@@ -39,6 +41,7 @@ export default function QuizSection() {
     setPhase("question");
     setCurrentQ(0);
     setScores([]);
+    setAnswers([]);
     setSelected(null);
     setAnimKey((k) => k + 1);
   }
@@ -49,9 +52,9 @@ export default function QuizSection() {
 
   function nextQuestion() {
     if (selected === null) return;
-    const score = questions[currentQ].options[selected].score;
-    const newScores = [...scores, score];
-    setScores(newScores);
+    const opt = questions[currentQ].options[selected];
+    setScores((s) => [...s, opt.score]);
+    setAnswers((a) => [...a, opt.label]);
     setSelected(null);
     setAnimKey((k) => k + 1);
 
@@ -76,6 +79,7 @@ export default function QuizSection() {
     setPhase("intro");
     setCurrentQ(0);
     setScores([]);
+    setAnswers([]);
     setSelected(null);
     setPhone("");
     setResult(null);
@@ -256,6 +260,7 @@ export default function QuizSection() {
                       if (currentQ > 0) {
                         setCurrentQ((q) => q - 1);
                         setScores((s) => s.slice(0, -1));
+                        setAnswers((a) => a.slice(0, -1));
                         setSelected(null);
                         setAnimKey((k) => k + 1);
                       }
@@ -318,6 +323,7 @@ export default function QuizSection() {
                       setPhase("question");
                       setCurrentQ(totalQuestions - 1);
                       setScores((s) => s.slice(0, -1));
+                      setAnswers((a) => a.slice(0, -1));
                       setSelected(null);
                       setAnimKey((k) => k + 1);
                     }}
@@ -382,6 +388,9 @@ export default function QuizSection() {
               const cta = RESULT_CTA[result];
               const res = t.results[result];
               const totalScore = scores.reduce((a, b) => a + b, 0);
+              const ctaHref = cta.isWhatsApp
+                ? buildWhatsAppUrl(lang, result, totalScore, answers)
+                : (cta.instagramHref ?? "https://instagram.com");
 
               return (
                 <div className="animate-fade-up space-y-7">
@@ -431,7 +440,7 @@ export default function QuizSection() {
 
                   {/* CTA */}
                   <a
-                    href={cta.href}
+                    href={ctaHref}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full rounded-xl py-4 text-[#09090B] font-bold text-base transition-transform duration-150 active:scale-[0.97]"

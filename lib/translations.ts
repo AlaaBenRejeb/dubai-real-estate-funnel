@@ -348,8 +348,42 @@ export const RESULT_COLORS: Record<
   },
 };
 
-export const RESULT_CTA: Record<ResultKey, { href: string; isWhatsApp: boolean }> = {
-  strong: { href: "https://wa.me/message/placeholder", isWhatsApp: true },
-  promising: { href: "https://wa.me/message/placeholder", isWhatsApp: true },
-  notYet: { href: "https://instagram.com", isWhatsApp: false },
+export const RESULT_CTA: Record<ResultKey, { isWhatsApp: boolean; instagramHref?: string }> = {
+  strong: { isWhatsApp: true },
+  promising: { isWhatsApp: true },
+  notYet: { isWhatsApp: false, instagramHref: "https://instagram.com" },
 };
+
+// Replace with the sales manager's WhatsApp number (international format, no +)
+export const WHATSAPP_NUMBER = "971500000000";
+
+export function buildWhatsAppUrl(
+  lang: Lang,
+  result: ResultKey,
+  score: number,
+  answers: string[]
+): string {
+  const qs = QUESTIONS[lang];
+
+  const lines =
+    lang === "ar"
+      ? [
+          "السلام عليكم 👋",
+          `أكملت التقييم العقاري — درجتي ${score} / 12`,
+          "",
+          "📋 إجاباتي:",
+          ...qs.map((q, i) => `• ${q.text}: ${answers[i] ?? "—"}`),
+        ]
+      : [
+          "Hello 👋",
+          `I completed the real estate assessment — my score: ${score} / 12`,
+          "",
+          "📋 My answers:",
+          ...qs.map((q, i) => `• ${q.text}: ${answers[i] ?? "—"}`),
+        ];
+
+  // suppress unused param warning — kept for future routing logic
+  void result;
+
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
