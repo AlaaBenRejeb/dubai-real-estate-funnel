@@ -355,7 +355,7 @@ export const RESULT_CTA: Record<ResultKey, { isWhatsApp: boolean; instagramHref?
 };
 
 // Replace with the sales manager's WhatsApp number (international format, no +)
-export const WHATSAPP_NUMBER = "971500000000";
+export const WHATSAPP_NUMBER = "971563719109";
 
 export function buildWhatsAppUrl(
   lang: Lang,
