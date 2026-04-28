@@ -1,26 +1,145 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Design tokens — UAE Real Estate Funnel */
+  --color-background: #09090B;
+  --color-foreground: #F4F4F5;
+  --color-card: #111113;
+  --color-card-foreground: #F4F4F5;
+  --color-popover: #18181B;
+  --color-popover-foreground: #F4F4F5;
+  --color-primary: #D4A853;
+  --color-primary-foreground: #09090B;
+  --color-secondary: #27272A;
+  --color-secondary-foreground: #F4F4F5;
+  --color-muted: #18181B;
+  --color-muted-foreground: #71717A;
+  --color-accent: #D4A853;
+  --color-accent-foreground: #09090B;
+  --color-destructive: #EF4444;
+  --color-border: rgba(39, 39, 42, 0.6);
+  --color-input: #27272A;
+  --color-ring: #D4A853;
+  /* Fix: literal font names required in @theme inline */
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --radius: 0.75rem;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Grid overlay — subtle graph-paper texture */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
+
+/* Gold glow for CTA */
+.gold-glow {
+  box-shadow:
+    0 0 24px rgba(212, 168, 83, 0.25),
+    0 0 60px rgba(212, 168, 83, 0.08);
+}
+
+/* Video play button pulse rings */
+@keyframes ring-pulse {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.ring-pulse {
+  position: relative;
+}
+.ring-pulse::before,
+.ring-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  animation: ring-pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+.ring-pulse::after {
+  animation-delay: 1s;
+}
+
+/* Fade-up entrance animation */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up          { animation: fade-up 0.65s ease forwards; }
+.animate-fade-up-d1       { animation: fade-up 0.65s ease 0.12s forwards; opacity: 0; }
+.animate-fade-up-d2       { animation: fade-up 0.65s ease 0.24s forwards; opacity: 0; }
+.animate-fade-up-d3       { animation: fade-up 0.65s ease 0.36s forwards; opacity: 0; }
+.animate-fade-up-d4       { animation: fade-up 0.65s ease 0.48s forwards; opacity: 0; }
+
+/* Quiz option */
+.quiz-option {
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+  border: 1px solid rgba(39, 39, 42, 0.7);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #111113;
+}
+.quiz-option:hover {
+  border-color: rgba(212, 168, 83, 0.4);
+  background: rgba(212, 168, 83, 0.05);
+}
+.quiz-option.selected {
+  border-color: #D4A853;
+  background: rgba(212, 168, 83, 0.1);
+  transform: scale(1.01);
+}
+
+/* Question slide animation */
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.slide-in {
+  animation: slide-in 0.28s ease forwards;
+}
+
+/* Result badge shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(90deg, #D4A853 0%, #F5D68A 40%, #D4A853 60%, #A8832C 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #27272A; border-radius: 2px; }
