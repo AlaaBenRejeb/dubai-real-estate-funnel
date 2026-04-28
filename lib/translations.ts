@@ -154,9 +154,9 @@ export const T = {
     tagBadge: "سوق دبي العقاري",
     h1: ["9 من كل 10 ناس", "يفكروا في العقارات في دبي", "مش جاهزين فعلاً"],
     subheading:
-      "مو لأنهم ما يستاهلوا — لأنهم ما يعرفوا وضعهم الحقيقي. اعرف وين أنت قبل ما تضيّع وقتك مع الوسطاء.",
-    ctaPrimary: "ابدأ التقييم المجاني",
-    ctaSub: "7 أسئلة · 90 ثانية · بدون مكالمات",
+      "الوسطاء ما يخبرونك بالحقيقة. البنوك تعقّد الأمور عمداً. والنتيجة؟ ناس تضيّع أشهر وهي تلحق على عقار ما كانت مؤهلة له أصلاً — أو أسوأ، تدخل السوق بطريقة غلط. اعرف وين أنت بالضبط قبل ما تتكلم مع أحد.",
+    ctaPrimary: "اكتشف إذا أنت مؤهل",
+    ctaSub: "7 أسئلة · 90 ثانية · بدون مكالمات مفاجئة",
     trustPrefix: "انضم لأكثر من",
     trustHighlight: "200+",
     trustSuffix: "شخص عرف وضعه قبل ما يتصل بأحد",
@@ -173,8 +173,8 @@ export const T = {
     videoDuration: "3:45",
     videoOverlayTitle: "كيف تعرف إذا أنت مؤهل لعقار دبي — قبل ما تكلّم أي وسيط",
     videoOverlaySub: "شرح كامل للفانل، الأرقام، والفخاخ اللي يقع فيها الناس",
-    videoHeadline: "قبل ما تبدأ،\nافهم الصورة كاملة",
-    videoBody: "الوسيط ما رح يقولك الحقيقة. المقطع هذا يفعل.",
+    videoHeadline: "الحقيقة اللي الوسطاء\nما يقولونها",
+    videoBody: "مو كل وسيط يكذب — لكن مصلحته مو مصلحتك. المقطع هذا يعطيك الصورة الكاملة قبل ما تتحرك.",
     videoPoints: [
       { num: "1", title: "كيف تحسب قدرتك الشرائية", desc: "الراتب، الديون، نسبة DBR" },
       { num: "2", title: "الفرق بين Off-plan وجاهز", desc: "متى كل واحد يناسبك" },
@@ -185,13 +185,13 @@ export const T = {
     // Quiz
     sectionLabel02: "02 — التقييم",
     quizIntroTitle: "تقييم وضعك في سوق دبي العقاري",
-    quizIntroSub: "7 أسئلة صريحة. نتيجة دقيقة. بدون ما تكلّم أي وسيط.",
+    quizIntroSub: "مو كل شخص مؤهل للدخول في سوق دبي العقاري الآن. الأسئلة هذي تحدد وين أنت بالضبط — بدون تجميل، بدون وسيط.",
     quizBenefits: [
-      "إذا راتبك يكفي فعلاً",
-      "نوع العقار المناسب لك",
-      "الفخاخ اللي لازم تتجنبها",
+      "إذا أنت مؤهل فعلاً — أو لا",
+      "ما يخفيه عليك الوسطاء",
+      "الفخاخ اللي وقع فيها 9 من كل 10",
     ],
-    quizStart: "ابدأ التقييم المجاني",
+    quizStart: "اكتشف إذا أنت مؤهل",
     quizDisclaimer: "بدون تسجيل · بدون إلزام · بدون مكالمات مفاجئة",
     questionLabel: "السؤال",
     next: "التالي",
@@ -218,12 +218,12 @@ export const T = {
       strong: {
         badge: "جاهز للخطوة التالية",
         headline: "أنت جاهز للسوق الآن",
-        body: "وضعك قوي. دخلك، مدخراتك، وتوقيتك يقولون إنك تقدر تتحرك. خبير المبيعات رح يتواصل معك على الواتساب خلال 60 ثانية.",
+        body: "وضعك قوي. دخلك، مدخراتك، وتوقيتك يقولون إنك تقدر تتحرك الحين. كلّم خبير المبيعات مباشرة على الواتساب — رح يرد عليك خلال دقائق.",
       },
       promising: {
         badge: "قريب من الهدف",
         headline: "أنت على الطريق الصح",
-        body: "وضعك واعد لكن في بعض النقاط اللي تحتاج تعالجها قبل ما تتحرك. رح نرسلك تحليل مفصّل على الواتساب خلال 24 ساعة.",
+        body: "وضعك واعد — لكن في نقاط محددة تحتاج تعالجها قبل ما تتحرك. كلّم خبير المبيعات على الواتساب وراح يشرح لك الخطوات بالضبط.",
       },
       notYet: {
         badge: "تحتاج وقت أكثر",
@@ -248,9 +248,9 @@ export const T = {
     tagBadge: "Dubai Real Estate Market",
     h1: ["9 out of 10 people", "thinking about Dubai real estate", "aren't actually ready"],
     subheading:
-      "Not because they don't deserve it — because they don't know their real situation. Find out where you stand before wasting time with agents.",
-    ctaPrimary: "Start Free Assessment",
-    ctaSub: "7 questions · 90 seconds · No sales calls",
+      "Agents don't tell you the truth. Banks make it complicated on purpose. The result? People spend months chasing a deal they were never qualified for — or worse, they sign the wrong one. Know exactly where you stand before you talk to anyone.",
+    ctaPrimary: "Find Out If You Qualify",
+    ctaSub: "7 questions · 90 seconds · No surprise calls",
     trustPrefix: "Join over",
     trustHighlight: "200+",
     trustSuffix: "people who knew their status before calling anyone",
@@ -268,8 +268,8 @@ export const T = {
     videoOverlayTitle:
       "How to Know If You Qualify for Dubai Real Estate — Before Talking to Any Agent",
     videoOverlaySub: "Full breakdown: the numbers, the process, and the traps people fall into",
-    videoHeadline: "Before you start,\nunderstand the full picture",
-    videoBody: "The agent won't tell you the truth. This video does.",
+    videoHeadline: "The Truth Agents\nWon't Tell You",
+    videoBody: "Not every agent lies — but their interest is not your interest. This video gives you the full picture before you make a move.",
     videoPoints: [
       { num: "1", title: "How to calculate your buying power", desc: "Salary, debts, DBR ratio" },
       { num: "2", title: "Off-plan vs ready property", desc: "When each one makes sense for you" },
@@ -280,13 +280,13 @@ export const T = {
     // Quiz
     sectionLabel02: "02 — Assessment",
     quizIntroTitle: "Assess Your Dubai Real Estate Situation",
-    quizIntroSub: "7 honest questions. Accurate result. Without talking to any agent.",
+    quizIntroSub: "Not everyone qualifies for the Dubai market right now. These questions tell you exactly where you stand — no sugarcoating, no agent spin.",
     quizBenefits: [
-      "Whether your salary is actually enough",
-      "The right property type for your situation",
-      "Traps you must avoid",
+      "Whether you actually qualify — or not",
+      "What agents don't want you to know",
+      "The traps 9 out of 10 people fall into",
     ],
-    quizStart: "Start Free Assessment",
+    quizStart: "Find Out If I Qualify",
     quizDisclaimer: "No registration · No obligation · No surprise calls",
     questionLabel: "Question",
     next: "Next",
@@ -313,12 +313,12 @@ export const T = {
       strong: {
         badge: "Ready to Move Forward",
         headline: "You're ready for the market now",
-        body: "Your situation is strong. Your income, savings, and timing say you can move forward. A sales expert will contact you on WhatsApp within 60 seconds.",
+        body: "Your situation is strong. Your income, savings, and timing say you can move now. Message the sales expert directly on WhatsApp — they'll respond within minutes.",
       },
       promising: {
         badge: "Almost There",
         headline: "You're on the right track",
-        body: "Your situation is promising but there are a few points to address before moving forward. We'll send you a detailed analysis on WhatsApp within 24 hours.",
+        body: "Your situation is promising — but there are a few specific points to address first. Message the expert on WhatsApp and they'll walk you through exactly what to fix.",
       },
       notYet: {
         badge: "Not Quite Yet",
