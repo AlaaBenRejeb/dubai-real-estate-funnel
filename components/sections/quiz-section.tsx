@@ -20,6 +20,8 @@ export default function QuizSection() {
   const [scores, setScores] = useState<number[]>([]);
   const [answers, setAnswers] = useState<string[]>([]);
   const [selected, setSelected] = useState<number | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [result, setResult] = useState<ResultKey | null>(null);
   const [animKey, setAnimKey] = useState(0);
@@ -67,7 +69,7 @@ export default function QuizSection() {
 
   function submitPhone() {
     const val = phone.trim() || phoneInputRef.current?.value?.trim() || "";
-    if (!val) return;
+    if (!name.trim() || !email.trim() || !val) return;
     setPhase("processing");
     setTimeout(() => {
       setResult(calculateResult(scores));
@@ -81,6 +83,8 @@ export default function QuizSection() {
     setScores([]);
     setAnswers([]);
     setSelected(null);
+    setName("");
+    setEmail("");
     setPhone("");
     setResult(null);
   }
@@ -303,17 +307,43 @@ export default function QuizSection() {
                   <p className="text-[#71717A] text-sm">{t.phoneSub}</p>
                 </div>
 
-                <div className="space-y-3">
-                  <input
-                    ref={phoneInputRef}
-                    type="tel"
-                    dir="ltr"
-                    placeholder={t.phonePlaceholder}
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && submitPhone()}
-                    className="w-full h-12 px-4 text-base bg-[#18181B] border border-[rgba(39,39,42,0.8)] text-[#F4F4F5] placeholder:text-[#3F3F46] rounded-xl outline-none transition-colors focus:border-[#D4A853] focus:ring-2 focus:ring-[rgba(212,168,83,0.2)]"
-                  />
+                <div className="space-y-4">
+                  <div className="space-y-1.5">
+                    <label className="text-[#A1A1AA] text-xs font-medium">{t.nameLabel}</label>
+                    <input
+                      type="text"
+                      placeholder={t.namePlaceholder}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full h-12 px-4 text-base bg-[#18181B] border border-[rgba(39,39,42,0.8)] text-[#F4F4F5] placeholder:text-[#3F3F46] rounded-xl outline-none transition-colors focus:border-[#D4A853] focus:ring-2 focus:ring-[rgba(212,168,83,0.2)]"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-[#A1A1AA] text-xs font-medium">{t.emailLabel}</label>
+                    <input
+                      type="email"
+                      dir="ltr"
+                      placeholder={t.emailPlaceholder}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full h-12 px-4 text-base bg-[#18181B] border border-[rgba(39,39,42,0.8)] text-[#F4F4F5] placeholder:text-[#3F3F46] rounded-xl outline-none transition-colors focus:border-[#D4A853] focus:ring-2 focus:ring-[rgba(212,168,83,0.2)]"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <label className="text-[#A1A1AA] text-xs font-medium">
+                      {lang === "ar" ? "رقم الواتساب" : "WhatsApp number"}
+                    </label>
+                    <input
+                      ref={phoneInputRef}
+                      type="tel"
+                      dir="ltr"
+                      placeholder={t.phonePlaceholder}
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && submitPhone()}
+                      className="w-full h-12 px-4 text-base bg-[#18181B] border border-[rgba(39,39,42,0.8)] text-[#F4F4F5] placeholder:text-[#3F3F46] rounded-xl outline-none transition-colors focus:border-[#D4A853] focus:ring-2 focus:ring-[rgba(212,168,83,0.2)]"
+                    />
+                  </div>
                   <p className="text-[#3F3F46] text-xs">{t.phonePrivacy}</p>
                 </div>
 
@@ -333,13 +363,13 @@ export default function QuizSection() {
                   </button>
                   <button
                     onClick={submitPhone}
-                    disabled={!phone.trim()}
+                    disabled={!name.trim() || !email.trim() || !phone.trim()}
                     className="rounded-xl px-8 py-3 text-[#09090B] font-semibold text-sm transition-all duration-150 active:scale-[0.97] disabled:opacity-40 disabled:cursor-not-allowed gold-glow"
                     style={{
-                      background: phone.trim()
+                      background: (name.trim() && email.trim() && phone.trim())
                         ? "linear-gradient(135deg, #D4A853 0%, #E8C270 50%, #C49240 100%)"
                         : "#27272A",
-                      color: phone.trim() ? "#09090B" : "#52525B",
+                      color: (name.trim() && email.trim() && phone.trim()) ? "#09090B" : "#52525B",
                     }}
                   >
                     {t.phoneSubmit}
@@ -389,7 +419,7 @@ export default function QuizSection() {
               const res = t.results[result];
               const totalScore = scores.reduce((a, b) => a + b, 0);
               const ctaHref = cta.isWhatsApp
-                ? buildWhatsAppUrl(lang, result, totalScore, answers)
+                ? buildWhatsAppUrl(lang, result, totalScore, answers, name, email, phone)
                 : (cta.instagramHref ?? "https://instagram.com");
 
               return (

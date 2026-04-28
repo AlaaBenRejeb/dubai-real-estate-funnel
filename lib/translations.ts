@@ -184,7 +184,7 @@ export const T = {
 
     // Quiz
     sectionLabel02: "02 — التقييم",
-    quizIntroTitle: "تقييم وضعك في دبي العقاري",
+    quizIntroTitle: "تقييم وضعك في سوق دبي العقاري",
     quizIntroSub: "7 أسئلة صريحة. نتيجة دقيقة. بدون ما تكلّم أي وسيط.",
     quizBenefits: [
       "إذا راتبك يكفي فعلاً",
@@ -197,8 +197,12 @@ export const T = {
     next: "التالي",
     back: "رجوع",
     lastQuestion: "السؤال الأخير",
-    phoneTitle: "رقم واتساب لإرسال نتيجة تقييمك",
+    phoneTitle: "خطوة أخيرة — بياناتك لتلقي نتيجتك",
     phoneSub: "ما رح نتصل. بنرسلك التحليل فقط — خلال دقائق.",
+    nameLabel: "الاسم الكامل",
+    namePlaceholder: "اكتب اسمك هنا",
+    emailLabel: "البريد الإلكتروني",
+    emailPlaceholder: "example@email.com",
     phonePlaceholder: "+971 50 000 0000",
     phonePrivacy: "بياناتك محمية ولن تُشارك مع أطراف ثالثة",
     phoneSubmit: "اعرف نتيجتي",
@@ -288,8 +292,12 @@ export const T = {
     next: "Next",
     back: "Back",
     lastQuestion: "Last Question",
-    phoneTitle: "WhatsApp number to receive your assessment result",
+    phoneTitle: "Last step — your details to receive your result",
     phoneSub: "We won't call. We'll send you the analysis only — within minutes.",
+    nameLabel: "Full name",
+    namePlaceholder: "Enter your name",
+    emailLabel: "Email address",
+    emailPlaceholder: "example@email.com",
     phonePlaceholder: "+971 50 000 0000",
     phonePrivacy: "Your data is protected and will not be shared with third parties",
     phoneSubmit: "See My Result",
@@ -361,7 +369,10 @@ export function buildWhatsAppUrl(
   lang: Lang,
   result: ResultKey,
   score: number,
-  answers: string[]
+  answers: string[],
+  name: string,
+  email: string,
+  phone: string
 ): string {
   const qs = QUESTIONS[lang];
 
@@ -369,6 +380,10 @@ export function buildWhatsAppUrl(
     lang === "ar"
       ? [
           "السلام عليكم 👋",
+          `👤 الاسم: ${name}`,
+          `📧 الإيميل: ${email}`,
+          `📱 الواتساب: ${phone}`,
+          "",
           `أكملت التقييم العقاري — درجتي ${score} / 12`,
           "",
           "📋 إجاباتي:",
@@ -376,13 +391,16 @@ export function buildWhatsAppUrl(
         ]
       : [
           "Hello 👋",
+          `👤 Name: ${name}`,
+          `📧 Email: ${email}`,
+          `📱 WhatsApp: ${phone}`,
+          "",
           `I completed the real estate assessment — my score: ${score} / 12`,
           "",
           "📋 My answers:",
           ...qs.map((q, i) => `• ${q.text}: ${answers[i] ?? "—"}`),
         ];
 
-  // suppress unused param warning — kept for future routing logic
   void result;
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
