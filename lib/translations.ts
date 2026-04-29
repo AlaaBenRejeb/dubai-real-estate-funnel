@@ -146,26 +146,50 @@ export const T = {
   ar: {
     dir: "rtl" as const,
     lang: "ar",
-    brandName: "[اسم المشروع]",
+    brandName: "المعيار",
     freeAssessment: "تقييم مجاني",
     langToggle: "EN",
 
     // Hero
     tagBadge: "سوق دبي العقاري",
-    h1: ["9 من كل 10 ناس", "يفكروا في العقارات في دبي", "مش جاهزين فعلاً"],
-    subheading:
-      "الوسطاء ما يخبرونك بالحقيقة. البنوك تعقّد الأمور عمداً. والنتيجة؟ ناس تضيّع أشهر وهي تلحق على عقار ما كانت مؤهلة له أصلاً — أو أسوأ، تدخل السوق بطريقة غلط. اعرف وين أنت بالضبط قبل ما تتكلم مع أحد.",
-    ctaPrimary: "اكتشف إذا أنت مؤهل",
-    ctaSub: "7 أسئلة · 90 ثانية · بدون مكالمات مفاجئة",
-    trustPrefix: "انضم لأكثر من",
-    trustHighlight: "200+",
-    trustSuffix: "شخص عرف وضعه قبل ما يتصل بأحد",
-    statsDisclaimer: "أرقام تقريبية لمساعدتك على الفهم — ليست عرضاً تجارياً",
-    stats: [
-      { label: "متوسط سعر الشقة", value: "800K", unit: "درهم", sub: "في مناطق الدخول" },
-      { label: "نسبة التمويل البنكي", value: "80%", unit: "", sub: "للمقيمين بدوام ثابت" },
-      { label: "الدفعة الأولى الأدنى", value: "20%", unit: "من السعر", sub: "عقار جاهز" },
-      { label: "خطط الدفع Off-plan", value: "1%", unit: "شهرياً", sub: "بعض المشاريع" },
+    h1: ["أغلب الناس اللي يفكروا", "في شراء عقار في دبي", "ما المفروض يشترون أصلاً"],
+    subheading: "مو لأنهم ما يقدرون — لأنهم ما يفهمون كيف يشتغل السوق فعلاً.",
+    heroBullets: [
+      "يكلمون الوسطاء بدري قبل ما يفهمون وضعهم",
+      "يفهمون شروط البنك غلط",
+      "يلاحقون صفقات ما كانوا مؤهلين لها أصلاً",
+    ],
+    heroConsequence: "النتيجة: يضيعون أشهر — أو يتعلقون في عقار غلط.",
+    ctaPrimary: "تحقق إذا أنت مؤهل — قبل ما تضيّع وقتك مع الوسطاء",
+    ctaSub: "7 أسئلة · 90 ثانية · بدون مكالمات إلا إذا كنت مؤهلاً",
+    trustLine: "كل أسبوع نشوف ناس يتأهلون لأكثر مما توقعوا — أو يحتاجون ينتظروا أكثر مما ظنوا. الفرق مو الدخل. الفرق هو الفهم.",
+
+    // Pressure block
+    pressureTitle: "معظم الناس يظنون:",
+    pressureBeliefs: [
+      "«إذا ادّخرت كفاية، تقدر تدخل»",
+      "«البنك راح يقولي كم أقدر أتحمّل»",
+      "«أي وسيط راح يوجّهني صح»",
+    ],
+    pressureConclusion: "الثلاثة كلها غلط.",
+    pressureClose: "البنوك ما تشتغل لمصلحتك. الوسطاء ما يصفّون لك. والسوق ما ينتظرك.",
+
+    // Authority block
+    authorityTitle: "شفنا نفس النمط يتكرر:",
+    authorityPattern: ["نفس نطاق الدخل", "نفس الافتراضات الغلط", "نفس النتيجة"],
+    authorityConclusion: "ناس إما يتأخرون كثير ويخسرون الفرص — أو يدخلون غلط ويتعلقون في صفقات سيئة. هذا التقييم موجود لوقف هذا.",
+
+    // Exclusion block
+    exclusionNotForTitle: "هذا مو لـ:",
+    exclusionNotFor: [
+      "الناس اللي يتصفحون بدون قصد",
+      "من يبحث عن صفقات رخيصة",
+      "من مو جاد بالدخول في السوق",
+    ],
+    exclusionForTitle: "هذا لـ:",
+    exclusionFor: [
+      "من يكسب 12,000 – 20,000 درهم",
+      "ويريد يدخل سوق دبي العقاري بالطريقة الصحيحة",
     ],
 
     // Video
@@ -233,33 +257,57 @@ export const T = {
     },
 
     // Footer
-    footerLeft: "© 2025 [اسم المشروع] — تقييم مجاني، بدون إلزام",
+    footerLeft: "© 2025 المعيار — تقييم مجاني، بدون إلزام",
     footerRight: "جميع الأرقام تقريبية ولأغراض المعلومات فقط",
   },
 
   en: {
     dir: "ltr" as const,
     lang: "en",
-    brandName: "[Brand Name]",
+    brandName: "Al Mi'yar",
     freeAssessment: "Free Assessment",
     langToggle: "AR",
 
     // Hero
     tagBadge: "Dubai Real Estate Market",
-    h1: ["9 out of 10 people", "thinking about Dubai real estate", "aren't actually ready"],
-    subheading:
-      "Agents don't tell you the truth. Banks make it complicated on purpose. The result? People spend months chasing a deal they were never qualified for — or worse, they sign the wrong one. Know exactly where you stand before you talk to anyone.",
-    ctaPrimary: "Find Out If You Qualify",
-    ctaSub: "7 questions · 90 seconds · No surprise calls",
-    trustPrefix: "Join over",
-    trustHighlight: "200+",
-    trustSuffix: "people who knew their status before calling anyone",
-    statsDisclaimer: "Approximate figures for reference only — not a commercial offer",
-    stats: [
-      { label: "Average apartment price", value: "800K", unit: "AED", sub: "Entry-level areas" },
-      { label: "Bank financing ratio", value: "80%", unit: "", sub: "Residents with stable income" },
-      { label: "Minimum down payment", value: "20%", unit: "of price", sub: "Ready property" },
-      { label: "Off-plan payment plans", value: "1%", unit: "monthly", sub: "Select projects" },
+    h1: ["Most people thinking about", "buying property in Dubai", "shouldn't be buying at all"],
+    subheading: "Not because they can't afford it — because they don't understand how the market actually works.",
+    heroBullets: [
+      "They talk to agents before understanding their position",
+      "They misread what banks will actually approve",
+      "They chase deals they were never qualified for",
+    ],
+    heroConsequence: "End result: months wasted — or locked into the wrong property.",
+    ctaPrimary: "Check if you qualify — before you waste time with agents",
+    ctaSub: "7 questions · 90 seconds · No calls unless you qualify",
+    trustLine: "Every week we see people qualify for more than they expected — or need to wait longer than they thought. The difference is not income. It's understanding.",
+
+    // Pressure block
+    pressureTitle: "Most people think:",
+    pressureBeliefs: [
+      '"If I save enough, I can enter"',
+      '"The bank will tell me what I can afford"',
+      '"Any agent will guide me correctly"',
+    ],
+    pressureConclusion: "All three are wrong.",
+    pressureClose: "Banks don't optimize for you. Agents don't filter for you. And the market doesn't wait while you figure it out.",
+
+    // Authority block
+    authorityTitle: "We've seen the same pattern repeat:",
+    authorityPattern: ["Same income range", "Same wrong assumptions", "Same outcome"],
+    authorityConclusion: "People either delay too long and miss opportunities — or enter wrong and get stuck in bad deals. This assessment exists to stop that.",
+
+    // Exclusion block
+    exclusionNotForTitle: "This is NOT for:",
+    exclusionNotFor: [
+      "People browsing without intent",
+      'People looking for "cheap deals"',
+      "People not serious about entering the market",
+    ],
+    exclusionForTitle: "This IS for:",
+    exclusionFor: [
+      "People earning AED 12,000–20,000",
+      "Who want to enter Dubai real estate the right way",
     ],
 
     // Video
@@ -328,7 +376,7 @@ export const T = {
     },
 
     // Footer
-    footerLeft: "© 2025 [Brand Name] — Free assessment, no obligation",
+    footerLeft: "© 2025 Al Mi'yar — Free assessment, no obligation",
     footerRight: "All figures are approximate and for informational purposes only",
   },
 } as const;
