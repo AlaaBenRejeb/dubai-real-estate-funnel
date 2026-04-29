@@ -41,9 +41,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+  }
+
+  /* Switch back to Geist for English (LTR) sections */
+  [dir="ltr"] {
+    font-family: var(--font-geist-sans), "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   }
 }
 

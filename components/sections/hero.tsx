@@ -4,6 +4,11 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useLang } from "@/lib/lang-context";
 
+/** Pick the correct language variant for a numbered infographic */
+function infographic(n: number, lang: string) {
+  return `/images/infographic-${n}-${lang === "ar" ? "ar" : "en"}.png`;
+}
+
 export default function HeroSection() {
   const { t, lang, setLang } = useLang();
   const ctaRef = useRef<HTMLButtonElement>(null);
@@ -66,7 +71,7 @@ export default function HeroSection() {
       </header>
 
       {/* ── FOLD 1 — HOOK + CTA ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pt-16 pb-20">
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pt-16 pb-10">
         {/* Tag badge */}
         <div className="animate-fade-up mb-8">
           <span className="inline-flex items-center gap-2 bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.25)] text-[#D4A853] text-xs font-medium px-3 py-1.5 rounded-full">
@@ -126,12 +131,24 @@ export default function HeroSection() {
           <p className="text-[#52525B] text-sm">{t.ctaSub}</p>
         </div>
 
+        {/* ── IMAGE 1 — Scales: Ready vs Not Ready ── */}
+        <div className="animate-fade-up-d4 mb-10">
+          <Image
+            src={infographic(1, lang)}
+            alt={lang === "ar" ? "أنت تُقيّم قبل أي قرار" : "You are being measured"}
+            width={800}
+            height={600}
+            className="w-full h-auto rounded-2xl"
+            priority
+          />
+        </div>
+
         {/* Divider */}
         <div className="border-t border-[rgba(39,39,42,0.5)]" />
       </div>
 
       {/* ── PRESSURE BLOCK — 3 wrong beliefs ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-16">
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
         <div className="bg-[#0C0C0E] border border-[rgba(39,39,42,0.7)] rounded-2xl p-8 md:p-10 space-y-6">
           <p className="text-[#71717A] text-sm font-mono tracking-widest uppercase" style={{ letterSpacing: "0.12em" }}>
             {t.pressureTitle}
@@ -151,8 +168,30 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* ── IMAGE 2 — Beliefs vs Truth ── */}
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
+        <Image
+          src={infographic(2, lang)}
+          alt={lang === "ar" ? "ما يعتقده الناس مقابل الحقيقة" : "What most people think vs the truth"}
+          width={800}
+          height={600}
+          className="w-full h-auto rounded-2xl"
+        />
+      </div>
+
+      {/* ── IMAGE 4 — Failure Timeline ── */}
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
+        <Image
+          src={infographic(4, lang)}
+          alt={lang === "ar" ? "أين يفشل أغلب الناس" : "Where most people fail"}
+          width={800}
+          height={600}
+          className="w-full h-auto rounded-2xl"
+        />
+      </div>
+
       {/* ── AUTHORITY BLOCK ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-16">
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
         <div className="space-y-5">
           <p className="text-[#52525B] text-xs font-mono tracking-widest uppercase" style={{ letterSpacing: "0.15em" }}>
             {t.authorityTitle}
@@ -173,8 +212,30 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── EXCLUSION BLOCK ── */}
+      {/* ── IMAGE 3 — Correct 5-step path ── */}
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
+        <Image
+          src={infographic(3, lang)}
+          alt={lang === "ar" ? "المسار الصحيح للدخول إلى السوق" : "The correct path to enter the market"}
+          width={800}
+          height={600}
+          className="w-full h-auto rounded-2xl"
+        />
+      </div>
+
+      {/* ── IMAGE 6 — Key Facts ── */}
       <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-16">
+        <Image
+          src={infographic(6, lang)}
+          alt={lang === "ar" ? "حقائق لازم تعرفها قبل ما تدخل" : "Key facts you should know"}
+          width={800}
+          height={600}
+          className="w-full h-auto rounded-2xl"
+        />
+      </div>
+
+      {/* ── EXCLUSION BLOCK ── */}
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Not for */}
           <div className="bg-[#0C0C0E] border border-[rgba(239,68,68,0.2)] rounded-2xl p-6 space-y-4">
@@ -207,11 +268,33 @@ export default function HeroSection() {
         </div>
       </div>
 
+      {/* ── IMAGE 5 — Qualification Criteria ── */}
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-16">
+        <Image
+          src={infographic(5, lang)}
+          alt={lang === "ar" ? "هل أنت مؤهل الآن؟" : "Are you qualified right now?"}
+          width={800}
+          height={600}
+          className="w-full h-auto rounded-2xl"
+        />
+      </div>
+
       {/* ── TRUST LINE ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-20">
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
         <div className="border-t border-[rgba(39,39,42,0.5)] pt-8">
           <p className="text-[#52525B] text-sm leading-relaxed text-center">{t.trustLine}</p>
         </div>
+      </div>
+
+      {/* ── IMAGE 7 — Wide Banner: Market is open, not for everyone ── */}
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-20">
+        <Image
+          src={infographic(7, lang)}
+          alt={lang === "ar" ? "السوق مفتوح... بس مو للجميع" : "The market is open... but not for everyone"}
+          width={1200}
+          height={300}
+          className="w-full h-auto rounded-2xl"
+        />
       </div>
 
       {/* Scroll cue */}
