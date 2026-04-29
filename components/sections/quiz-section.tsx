@@ -10,6 +10,7 @@ import {
   type ResultKey,
 } from "@/lib/translations";
 import { useLang } from "@/lib/lang-context";
+import { saveLead } from "@/app/actions";
 
 type Phase = "intro" | "question" | "phone" | "processing" | "result";
 
@@ -70,6 +71,18 @@ export default function QuizSection() {
   function submitPhone() {
     const val = phone.trim() || phoneInputRef.current?.value?.trim() || "";
     if (!name.trim() || !email.trim() || !val) return;
+
+    // Fire-and-forget — don't block the UX while Supabase writes
+    saveLead({
+      name: name.trim(),
+      email: email.trim(),
+      phone: val,
+      lang,
+      score: scores.reduce((a, b) => a + b, 0),
+      result: calculateResult(scores),
+      answers,
+    });
+
     setPhase("processing");
     setTimeout(() => {
       setResult(calculateResult(scores));
