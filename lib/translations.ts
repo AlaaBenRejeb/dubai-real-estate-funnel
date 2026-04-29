@@ -176,20 +176,25 @@ export const T = {
 
     // Authority block
     authorityTitle: "شفنا نفس النمط يتكرر:",
-    authorityPattern: ["نفس نطاق الدخل", "نفس الافتراضات الغلط", "نفس النتيجة"],
+    authorityPattern: [
+      "ناس بنطاق راتب 12K–20K يكررون نفس الغلطات كل أسبوع",
+      "يفترضون إن البنك سيشرح لهم — والوسيط سيختار الصح — وهذا ما يصير",
+      "يتعلقون في صفقة سيئة — أو يضيعون أشهر كاملة بدون أي تقدم",
+    ],
     authorityConclusion: "ناس إما يتأخرون كثير ويخسرون الفرص — أو يدخلون غلط ويتعلقون في صفقات سيئة. هذا التقييم موجود لوقف هذا.",
 
     // Exclusion block
     exclusionNotForTitle: "هذا مو لـ:",
     exclusionNotFor: [
-      "الناس اللي يتصفحون بدون قصد",
-      "من يبحث عن صفقات رخيصة",
-      "من مو جاد بالدخول في السوق",
+      "من يتصفح بدون نية شراء جدية",
+      "من يبحث عن أرخص سعر فقط",
+      "من مو جاهز يتعامل مع الحقيقة كاملة",
     ],
     exclusionForTitle: "هذا لـ:",
     exclusionFor: [
-      "من يكسب 12,000 – 20,000 درهم",
-      "ويريد يدخل سوق دبي العقاري بالطريقة الصحيحة",
+      "من يكسب 12,000 – 20,000 درهم شهرياً",
+      "ولديه هدف واضح: سكن أو استثمار",
+      "ويريد يعرف وين يقف بالضبط — قبل ما يتحرك",
     ],
 
     // Video
@@ -294,20 +299,25 @@ export const T = {
 
     // Authority block
     authorityTitle: "We've seen the same pattern repeat:",
-    authorityPattern: ["Same income range", "Same wrong assumptions", "Same outcome"],
+    authorityPattern: [
+      "People earning 12K–20K repeat the same mistakes every week",
+      "They assume the bank will explain — and the agent will choose right. Neither does.",
+      "They end up locked in a bad deal — or waste months with nothing to show for it",
+    ],
     authorityConclusion: "People either delay too long and miss opportunities — or enter wrong and get stuck in bad deals. This assessment exists to stop that.",
 
     // Exclusion block
     exclusionNotForTitle: "This is NOT for:",
     exclusionNotFor: [
-      "People browsing without intent",
-      'People looking for "cheap deals"',
-      "People not serious about entering the market",
+      "People browsing without serious buying intent",
+      "People hunting for the cheapest possible price",
+      "People not ready to face the full picture",
     ],
     exclusionForTitle: "This IS for:",
     exclusionFor: [
-      "People earning AED 12,000–20,000",
-      "Who want to enter Dubai real estate the right way",
+      "Earning AED 12,000–20,000 per month",
+      "With a clear goal — home or investment",
+      "Who wants to know exactly where they stand before making a move",
     ],
 
     // Video

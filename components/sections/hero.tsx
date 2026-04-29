@@ -179,17 +179,6 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* ── IMAGE 4 — Failure Timeline ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
-        <Image
-          src={infographic(4, lang)}
-          alt={lang === "ar" ? "أين يفشل أغلب الناس" : "Where most people fail"}
-          width={800}
-          height={600}
-          className="w-full h-auto rounded-2xl"
-        />
-      </div>
-
       {/* ── AUTHORITY BLOCK ── */}
       <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
         <div className="space-y-5">
@@ -210,28 +199,6 @@ export default function HeroSection() {
             {t.authorityConclusion}
           </p>
         </div>
-      </div>
-
-      {/* ── IMAGE 3 — Correct 5-step path ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
-        <Image
-          src={infographic(3, lang)}
-          alt={lang === "ar" ? "المسار الصحيح للدخول إلى السوق" : "The correct path to enter the market"}
-          width={800}
-          height={600}
-          className="w-full h-auto rounded-2xl"
-        />
-      </div>
-
-      {/* ── IMAGE 6 — Key Facts ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-16">
-        <Image
-          src={infographic(6, lang)}
-          alt={lang === "ar" ? "حقائق لازم تعرفها قبل ما تدخل" : "Key facts you should know"}
-          width={800}
-          height={600}
-          className="w-full h-auto rounded-2xl"
-        />
       </div>
 
       {/* ── EXCLUSION BLOCK ── */}
@@ -268,33 +235,11 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── IMAGE 5 — Qualification Criteria ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-16">
-        <Image
-          src={infographic(5, lang)}
-          alt={lang === "ar" ? "هل أنت مؤهل الآن؟" : "Are you qualified right now?"}
-          width={800}
-          height={600}
-          className="w-full h-auto rounded-2xl"
-        />
-      </div>
-
       {/* ── TRUST LINE ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-8">
+      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-20">
         <div className="border-t border-[rgba(39,39,42,0.5)] pt-8">
           <p className="text-[#52525B] text-sm leading-relaxed text-center">{t.trustLine}</p>
         </div>
-      </div>
-
-      {/* ── IMAGE 7 — Wide Banner: Market is open, not for everyone ── */}
-      <div className="relative z-10 max-w-[860px] mx-auto w-full px-6 md:px-12 pb-20">
-        <Image
-          src={infographic(7, lang)}
-          alt={lang === "ar" ? "السوق مفتوح... بس مو للجميع" : "The market is open... but not for everyone"}
-          width={1200}
-          height={300}
-          className="w-full h-auto rounded-2xl"
-        />
       </div>
 
       {/* Scroll cue */}
