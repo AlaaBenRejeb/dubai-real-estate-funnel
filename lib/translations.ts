@@ -264,6 +264,34 @@ export const T = {
     // Footer
     footerLeft: "© 2025 المعيار — تقييم مجاني، بدون إلزام",
     footerRight: "جميع الأرقام تقريبية ولأغراض المعلومات فقط",
+    footerPrivacy: "سياسة الخصوصية",
+
+    // Privacy page
+    privacyTitle: "سياسة الخصوصية",
+    privacyLastUpdated: "آخر تحديث: أبريل 2025",
+    privacyIntro: "نحن في المعيار نأخذ خصوصيتك على محمل الجد. هذه الصفحة توضّح البيانات التي نجمعها، وكيف نستخدمها، وحقوقك كاملة.",
+    privacySections: [
+      {
+        title: "البيانات التي نجمعها",
+        body: "عندما تُكمل التقييم، نجمع: اسمك الكامل، عنوان بريدك الإلكتروني، رقم هاتفك (واتساب)، إجاباتك على أسئلة التقييم، ونتيجتك.",
+      },
+      {
+        title: "كيف نستخدم بياناتك",
+        body: "تُستخدم بياناتك فقط للتواصل معك بشأن فرص عقارية في دبي تتناسب مع وضعك، وإرسال معلومات ذات صلة تساعدك على اتخاذ قرار مدروس.",
+      },
+      {
+        title: "تخزين البيانات",
+        body: "تُخزَّن بياناتك بأمان في قواعد بيانات Supabase المستضافة في أوروبا. نلتزم بأعلى معايير الحماية.",
+      },
+      {
+        title: "مشاركة البيانات",
+        body: "لا نبيع بياناتك ولا نشاركها مع أطراف ثالثة. البيانات تُستخدم فقط داخل فريق المعيار للتواصل المباشر معك عبر واتساب أو البريد الإلكتروني.",
+      },
+      {
+        title: "حقوقك",
+        body: "يحق لك طلب حذف بياناتك في أي وقت. للتواصل: alaabenrejeb.b@gmail.com",
+      },
+    ],
   },
 
   en: {
@@ -388,6 +416,34 @@ export const T = {
     // Footer
     footerLeft: "© 2025 Al Mi'yar — Free assessment, no obligation",
     footerRight: "All figures are approximate and for informational purposes only",
+    footerPrivacy: "Privacy Policy",
+
+    // Privacy page
+    privacyTitle: "Privacy Policy",
+    privacyLastUpdated: "Last updated: April 2025",
+    privacyIntro: "At Al Mi'yar, we take your privacy seriously. This page explains what data we collect, how we use it, and your full rights.",
+    privacySections: [
+      {
+        title: "Data We Collect",
+        body: "When you complete the assessment, we collect: your full name, email address, phone number (WhatsApp), your assessment answers, and your result.",
+      },
+      {
+        title: "How We Use Your Data",
+        body: "Your data is used solely to contact you about Dubai real estate opportunities that match your situation, and to send relevant information to help you make an informed decision.",
+      },
+      {
+        title: "Data Storage",
+        body: "Your data is stored securely in Supabase databases hosted in Europe. We apply the highest protection standards.",
+      },
+      {
+        title: "Data Sharing",
+        body: "We do not sell or share your data with third parties. Data is used only within the Al Mi'yar team for direct communication via WhatsApp or email.",
+      },
+      {
+        title: "Your Rights",
+        body: "You may request deletion of your data at any time. Contact us: alaabenrejeb.b@gmail.com",
+      },
+    ],
   },
 } as const;
 
